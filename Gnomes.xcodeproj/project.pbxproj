@@ -9,23 +9,51 @@
 /* Begin PBXBuildFile section */
 		2960988624F1181B0099420D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960988524F1181B0099420D /* AppDelegate.swift */; };
 		2960988824F1181B0099420D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960988724F1181B0099420D /* SceneDelegate.swift */; };
-		2960988A24F1181B0099420D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960988924F1181B0099420D /* ViewController.swift */; };
+		2960988A24F1181B0099420D /* TownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960988924F1181B0099420D /* TownViewController.swift */; };
 		2960988D24F1181B0099420D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2960988B24F1181B0099420D /* Main.storyboard */; };
 		2960988F24F1181F0099420D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2960988E24F1181F0099420D /* Assets.xcassets */; };
 		2960989224F1181F0099420D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2960989024F1181F0099420D /* LaunchScreen.storyboard */; };
-		2960989A24F119410099420D /* Town.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960989924F119410099420D /* Town.swift */; };
+		2960989D24F119D30099420D /* GnomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960989C24F119D30099420D /* GnomeModel.swift */; };
+		296098A024F11C7C0099420D /* GnomesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2960989E24F11C7C0099420D /* GnomesCoreData.xcdatamodeld */; };
+		296098A224F11E2D0099420D /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098A124F11E2D0099420D /* Networking.swift */; };
+		296098A624F11E570099420D /* GetPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098A524F11E570099420D /* GetPopulation.swift */; };
+		296098A824F126160099420D /* CDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098A724F126160099420D /* CDStack.swift */; };
+		296098AC24F126740099420D /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098A924F126730099420D /* DataSource.swift */; };
+		296098AD24F126740099420D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098AA24F126740099420D /* Coordinator.swift */; };
+		296098AE24F126740099420D /* Storyboarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098AB24F126740099420D /* Storyboarder.swift */; };
+		296098B124F129030099420D /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296098B024F129030099420D /* Entities.swift */; };
+		297B83D224F146970022081C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83D124F146970022081C /* MainCoordinator.swift */; };
+		297B83D424F147B90022081C /* GnomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83D324F147B90022081C /* GnomesViewController.swift */; };
+		297B83D824F148100022081C /* GnomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83D724F148100022081C /* GnomeCoordinator.swift */; };
+		297B83DA24F148710022081C /* GnomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83D924F148710022081C /* GnomeDetailViewController.swift */; };
+		297B83DC24F1492E0022081C /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DB24F1492E0022081C /* MainTabViewController.swift */; };
+		297B83DE24F14ACC0022081C /* GnomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2960988224F1181B0099420D /* Gnomes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gnomes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2960988524F1181B0099420D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2960988724F1181B0099420D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2960988924F1181B0099420D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2960988924F1181B0099420D /* TownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewController.swift; sourceTree = "<group>"; };
 		2960988C24F1181B0099420D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2960988E24F1181F0099420D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2960989124F1181F0099420D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2960989324F1181F0099420D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2960989924F119410099420D /* Town.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Town.swift; sourceTree = "<group>"; };
+		2960989C24F119D30099420D /* GnomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeModel.swift; sourceTree = "<group>"; };
+		2960989F24F11C7C0099420D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		296098A124F11E2D0099420D /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		296098A524F11E570099420D /* GetPopulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopulation.swift; sourceTree = "<group>"; };
+		296098A724F126160099420D /* CDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStack.swift; sourceTree = "<group>"; };
+		296098A924F126730099420D /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		296098AA24F126740099420D /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		296098AB24F126740099420D /* Storyboarder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarder.swift; sourceTree = "<group>"; };
+		296098B024F129030099420D /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		297B83D124F146970022081C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		297B83D324F147B90022081C /* GnomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomesViewController.swift; sourceTree = "<group>"; };
+		297B83D724F148100022081C /* GnomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeCoordinator.swift; sourceTree = "<group>"; };
+		297B83D924F148710022081C /* GnomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailViewController.swift; sourceTree = "<group>"; };
+		297B83DB24F1492E0022081C /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +86,13 @@
 		2960988424F1181B0099420D /* Gnomes */ = {
 			isa = PBXGroup;
 			children = (
-				2960989B24F119480099420D /* Models */,
+				296098A324F11E330099420D /* KMTools */,
+				296098A424F11E420099420D /* Shared */,
 				2960988524F1181B0099420D /* AppDelegate.swift */,
 				2960988724F1181B0099420D /* SceneDelegate.swift */,
-				2960988924F1181B0099420D /* ViewController.swift */,
+				297B83D524F147C30022081C /* ViewControllers */,
 				2960988B24F1181B0099420D /* Main.storyboard */,
+				2960989E24F11C7C0099420D /* GnomesCoreData.xcdatamodeld */,
 				2960988E24F1181F0099420D /* Assets.xcassets */,
 				2960989024F1181F0099420D /* LaunchScreen.storyboard */,
 				2960989324F1181F0099420D /* Info.plist */,
@@ -73,9 +103,61 @@
 		2960989B24F119480099420D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2960989924F119410099420D /* Town.swift */,
+				2960989C24F119D30099420D /* GnomeModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		296098A324F11E330099420D /* KMTools */ = {
+			isa = PBXGroup;
+			children = (
+				296098A124F11E2D0099420D /* Networking.swift */,
+				296098A724F126160099420D /* CDStack.swift */,
+				296098AA24F126740099420D /* Coordinator.swift */,
+				296098A924F126730099420D /* DataSource.swift */,
+				296098AB24F126740099420D /* Storyboarder.swift */,
+			);
+			path = KMTools;
+			sourceTree = "<group>";
+		};
+		296098A424F11E420099420D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2960989B24F119480099420D /* Models */,
+				296098AF24F127A80099420D /* API */,
+				296098B224F1290E0099420D /* DB */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		296098AF24F127A80099420D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				296098A524F11E570099420D /* GetPopulation.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		296098B224F1290E0099420D /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				296098B024F129030099420D /* Entities.swift */,
+				297B83D124F146970022081C /* MainCoordinator.swift */,
+				297B83D724F148100022081C /* GnomeCoordinator.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		297B83D524F147C30022081C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2960988924F1181B0099420D /* TownViewController.swift */,
+				297B83DB24F1492E0022081C /* MainTabViewController.swift */,
+				297B83D324F147B90022081C /* GnomesViewController.swift */,
+				297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */,
+				297B83D924F148710022081C /* GnomeDetailViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,10 +231,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2960988A24F1181B0099420D /* ViewController.swift in Sources */,
-				2960989A24F119410099420D /* Town.swift in Sources */,
+				297B83DC24F1492E0022081C /* MainTabViewController.swift in Sources */,
+				296098A824F126160099420D /* CDStack.swift in Sources */,
+				297B83DE24F14ACC0022081C /* GnomeTableViewCell.swift in Sources */,
+				296098AE24F126740099420D /* Storyboarder.swift in Sources */,
+				297B83DA24F148710022081C /* GnomeDetailViewController.swift in Sources */,
+				2960988A24F1181B0099420D /* TownViewController.swift in Sources */,
+				296098A624F11E570099420D /* GetPopulation.swift in Sources */,
 				2960988624F1181B0099420D /* AppDelegate.swift in Sources */,
 				2960988824F1181B0099420D /* SceneDelegate.swift in Sources */,
+				296098B124F129030099420D /* Entities.swift in Sources */,
+				296098AD24F126740099420D /* Coordinator.swift in Sources */,
+				2960989D24F119D30099420D /* GnomeModel.swift in Sources */,
+				297B83D824F148100022081C /* GnomeCoordinator.swift in Sources */,
+				296098A024F11C7C0099420D /* GnomesCoreData.xcdatamodeld in Sources */,
+				297B83D224F146970022081C /* MainCoordinator.swift in Sources */,
+				297B83D424F147B90022081C /* GnomesViewController.swift in Sources */,
+				296098AC24F126740099420D /* DataSource.swift in Sources */,
+				296098A224F11E2D0099420D /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +444,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2960989E24F11C7C0099420D /* GnomesCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2960989F24F11C7C0099420D /* Model.xcdatamodel */,
+			);
+			currentVersion = 2960989F24F11C7C0099420D /* Model.xcdatamodel */;
+			path = GnomesCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2960987A24F1181B0099420D /* Project object */;
 }

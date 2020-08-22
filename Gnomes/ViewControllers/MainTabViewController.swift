@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainTabViewController.swift
 //  Gnomes
 //
 //  Created by mabas on 22/08/20.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MainTabViewController: UITabBarController {
+	weak var coordinator: MainCoordinator?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		//Obtener los tabbed usados
 	}
-
-
 }
-
