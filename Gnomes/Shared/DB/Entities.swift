@@ -16,7 +16,7 @@ class DBEntitiesApi {
 		case Profession
 		case HairColor
 	}
-	let context = CDStack.shared.context
+	let context = CDStack.shared.managedObjectContext
 
 	func save(townResponse: TownPopulationResponse, completion: () -> Void) {
 		
@@ -29,18 +29,30 @@ class DBEntitiesApi {
 			let townEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Town.rawValue, into: context) as! Town
 			townEntity.name = townName
 			
-			let gnomeEntities: [Gnome] = gnomes.map { (gnome) in
+			let gnomeEntities: [Gnome] = gnomes.compactMap { (gnome) in
+				if let gnomeEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Gnome.rawValue, into: context) as? Gnome {
+					gnomeEntity.set(from: gnome)
+					gnomeEntity.setProfessions(gnome.professions)
+					do {
+						let hColor = try DBEntitiesApi().getOrCreate(hairColor: gnome.hairColor)
+						hColor.addToGnomes(gnomeEntity)
+					}
+					catch {
+						print("Can't set hairColor")
+					}
+					return gnomeEntity
+				}
+				else {
+					print("No se genero entidad")
+				}
 
-				let gnomeEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Gnome.rawValue, into: context) as! Gnome
-
-				gnomeEntity.set(from: gnome)
-				gnomeEntity.town = townEntity
-				return gnomeEntity
+				return nil
 			}
 			townEntity.addToGnomes(NSOrderedSet(array: gnomeEntities))
-			
+			CDStack.shared.saveContext()
+
 		}
-		CDStack.shared.saveContext()
+		context.reset()
 		completion()
 	}
 	
@@ -50,7 +62,6 @@ class DBEntitiesApi {
 		return resultados?.compactMap{
 			return $0.name
 			} ?? []
-		
 	}
 	
 	func getTown(town: String) -> Town? {
@@ -65,19 +76,13 @@ class DBEntitiesApi {
 	}
 	
 	func getOrCreate(profession: Professions) throws -> Profession {
-		let fetchRequest: NSFetchRequest<Profession> = Profession.fetchRequest()
-		fetchRequest.predicate = NSPredicate(format: "name == %@", profession.rawValue)
-		fetchRequest.fetchLimit = 1
-		do {
-			let resultados = try context.fetch(fetchRequest)
-			if let professionEntity = resultados.first {
-				return professionEntity
-			}
-			else {
-				let professionEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Profession.rawValue, into: context) as! Profession
-				professionEntity.name = profession.rawValue
-				return professionEntity
-			}
+		if let professionEntity = getProfession(profession) {
+			return professionEntity
+		}
+		else {
+			let professionEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Profession.rawValue, into: context) as! Profession
+			professionEntity.name = profession.rawValue
+			return professionEntity
 		}
 	}
 	
@@ -109,6 +114,38 @@ class DBEntitiesApi {
 			return []
 		}
 	}
+	
+	func getGnomes(profession: Professions) -> [GnomeModel] {
+		if let professionEntity = getProfession(profession) {
+			let gnomes = professionEntity.gnomes?.allObjects as! [Gnome]
+			return gnomes.map {
+				GnomeModel(dbModel: $0)
+			}
+		}
+		return []
+	}
+	
+	func getProfession(_ profession: Professions) -> Profession? {
+		let fetchRequest: NSFetchRequest<Profession> = Profession.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "name == %@", profession.rawValue)
+		fetchRequest.fetchLimit = 1
+		let resultados = try? context.fetch(fetchRequest)
+		if let professionEntity = resultados?.first {
+			return professionEntity
+		}
+		return nil
+	}
+	
+	func getGnome(name: String) -> GnomeModel? {
+		let fetchRequest: NSFetchRequest<Gnome> = Gnome.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+		fetchRequest.fetchLimit = 1
+		let resultados = try? context.fetch(fetchRequest)
+		if let gnomeEntity = resultados?.first {
+			return  GnomeModel(dbModel: gnomeEntity)
+		}
+		return nil
+	}
 }
 
 extension Gnome {
@@ -120,21 +157,10 @@ extension Gnome {
 		name = gnome.name
 		thumbnail = gnome.thumbnail
 		weight = gnome.weight
-
-		
-		/*do {
-			let hColor = try DBEntitiesApi().getOrCreate(hairColor: gnome.hairColor)
-			hColor.addToGnomes(self)
-			self.hairColor = hColor
-		}
-		catch {
-			print("Can't set hairColor")
-		}
-		setProfessions(gnome.professions)
-*/
 	}
+	
 	func setProfessions(_ professions: [Professions]) {
-		let professionEntities: [Profession] = professions.compactMap { (profession) in
+		let _: [Profession] = professions.compactMap { (profession) in
 			do {
 				let prof = try DBEntitiesApi().getOrCreate(profession: profession)
 				prof.addToGnomes(self)
@@ -145,6 +171,5 @@ extension Gnome {
 			}
 			return nil
 		}
-		addToProfessions(NSSet(array: professionEntities))
 	}
 }

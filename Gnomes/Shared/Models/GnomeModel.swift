@@ -7,7 +7,7 @@
 //
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 
-import Foundation
+import UIKit
 
 enum HColor: String, Codable {
 	case black = "Black"
@@ -16,6 +16,24 @@ enum HColor: String, Codable {
 	case pink = "Pink"
 	case red = "Red"
 	case unknown = "Unknown"
+	
+	var uiColor: UIColor {
+		switch self {
+			case .black:
+				return .black
+			case .gray:
+				return .gray
+			case .green:
+				return .green
+			case .pink:
+				return .black
+			case .red:
+				return .red
+			case .unknown:
+				return .white
+			
+		}
+	}
 }
 
 enum Professions: String, Codable {

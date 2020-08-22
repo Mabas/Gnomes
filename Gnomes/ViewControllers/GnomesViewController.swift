@@ -11,6 +11,8 @@ import UIKit
 class GnomesViewController: UIViewController {
 	var coordinator: GnomeCoordinator?
 	let dataSource: TableDataSource<GnomeModel, GnomeTableViewCell>! = TableDataSource()
+	
+	var gnomes: [GnomeModel]?
 
 	@IBOutlet weak var tableView: UITableView!
 
@@ -18,9 +20,17 @@ class GnomesViewController: UIViewController {
         super.viewDidLoad()
 		
 		tableView.dataSource = dataSource
-		dataSource.items = DBEntitiesApi().getGnomes(town: "Brastlewark")
-		
+		if let gnomes = gnomes {
+			dataSource.items = gnomes
+		}
+		else {
+			dataSource.items = DBEntitiesApi().getGnomes(town: "Brastlewark")
+		}
     }
-    
+}
 
+extension GnomesViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		coordinator?.showGnome(dataSource.items[indexPath.row])
+	}
 }

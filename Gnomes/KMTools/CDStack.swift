@@ -12,34 +12,27 @@ import CoreData
 final class CDStack {
 	static let shared = CDStack()
 	fileprivate init() {
-		
-	}
-		// MARK: - Core Data stack
-	lazy var persistentContainer: NSPersistentContainer = {
 		let container = NSPersistentContainer(name: "GnomesCoreData")
 		container.loadPersistentStores(completionHandler: { (storeDescription, error) in
 			if let error = error as NSError? {
 				fatalError("Unresolved error \(error), \(error.userInfo)")
 			}
 		})
-		return container
-	}()
-	
+		persistentContainer = container
+		managedObjectContext = container.newBackgroundContext()
+	}
+		// MARK: - Core Data stack
+	var persistentContainer: NSPersistentContainer
 	// MARK: - Core Data Saving support
 	func saveContext () {
-		let context = persistentContainer.viewContext
-		if context.hasChanges {
+		if managedObjectContext.hasChanges {
 			do {
-				try context.save()
+				try managedObjectContext.save()
 			} catch {
 				let nserror = error as NSError
 				fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 			}
 		}
 	}
-	
-	var context: NSManagedObjectContext {
-		//persistentContainer.viewContext.refreshAllObjects()
-		return persistentContainer.viewContext
-	}
+	let managedObjectContext: NSManagedObjectContext
 }

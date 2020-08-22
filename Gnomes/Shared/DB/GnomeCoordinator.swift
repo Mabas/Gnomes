@@ -19,11 +19,29 @@ class GnomeCoordinator: Coordinator {
 	}
 	
 	func start() {
-		let vc = GnomeDetailViewController.instantiate()
-		vc.coordinator = self
-		navigationController.pushViewController(vc, animated: false)
+		
 	}
 	
+	func showGnome(_ gnome: GnomeModel) {
+		let vc = GnomeDetailViewController.instantiate()
+		vc.coordinator = self
+		vc.gnome = gnome
+		navigationController.pushViewController(vc, animated: true)
+	}
+	
+	func showProfession(_ profession: Professions) {
+		let vc = GnomesViewController.instantiate()
+		vc.coordinator = self
+		vc.gnomes = DBEntitiesApi().getGnomes(profession: profession)
+		navigationController.pushViewController(vc, animated: true)
+	}
+	
+	func showFriend(_ friend: String) {
+		let vc = GnomeDetailViewController.instantiate()
+		vc.coordinator = self
+		vc.gnome = DBEntitiesApi().getGnome(name: friend)
+		navigationController.pushViewController(vc, animated: true)
+	}
 }
 
 
