@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+/**
+Coordinador encargado del flujo de la aplicación en lo referente a gnomos
+*/
 class GnomeCoordinator: Coordinator {
 	weak var parentCoordinator: MainCoordinator?
 	
@@ -44,7 +46,3 @@ class GnomeCoordinator: Coordinator {
 		navigationController.pushViewController(vc, animated: true)
 	}
 }
-
-
-
-

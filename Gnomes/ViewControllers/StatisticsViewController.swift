@@ -9,6 +9,25 @@
 import UIKit
 typealias DictTuple = (key: String, value: Int)
 
+/**
+Estadisticas del pueblo, para poder mostrar información importante acerca de la población
+se contemplaron
+- Las profesiones, y la cantidad de gnomos dedicados a estas
+- Los gnomos más queridos por otros gnomos (cuantas apariciones hay en la lista de amigos de los demás gnomos)
+- Los gnomos menos queridos, se había pensado en ermitaños, pero no cumple puesto que un gnomo puede considerar amigo a otro aunque no sea reciproco
+- Los gnomos con más profesiones
+- Los gnomos más flojos
+
+Se planeaba implementar la librería, https://github.com/danielgindi/Charts, para mostrar información más visual, sin embargo, un requisito es no añadir librerías externas, y tampoco añade mayor valor a la evaluación, puesto que es parecido generar la estructura llave, valor para visualizar
+Sin embargo hasta el momento se consideraron las siguientes gráficas
+- Barras de trabajo-cantidad de gnomos
+- Histograma de edad, peso, altura de población
+- Relación edad-altura, sería curioso saber si a mayor edad mayor altura
+- Pie chart de distribución por color de pelo
+
+
+Statistics, se creo una especie de ViewModel para poder aislar la estructura de estadisticas de la vista, con el fin de poder hacer debugs y tests eficientes
+*/
 struct Statistics {
 	var professions: [DictTuple]
 	

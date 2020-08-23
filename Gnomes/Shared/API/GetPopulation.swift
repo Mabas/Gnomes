@@ -8,7 +8,9 @@
 
 import Foundation
 
-
+/**
+Si se implementara un json para cada pueblo, se dejó preparado
+*/
 class TownPopulationEndpoint: Endpoint {
 	typealias ResponseType = TownPopulationResponse
 	
@@ -28,8 +30,3 @@ class TownPopulationEndpoint: Endpoint {
 	
 }
 typealias TownPopulationResponse = [String: [GnomeModel]]
-/*
-struct TownPopulationResponse: Decodable {
-	let town: [String: [GnomeModel]]
-}
-*/

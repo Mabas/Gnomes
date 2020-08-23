@@ -3,6 +3,12 @@
 //
 
 import UIKit
+/**
+Coordinador principal encargado de inicializar el sistema de navegación
+- Se pretendió implementar una estrategía de carga única a CoreData mediante DBEntitiesApi para eliminar los tiempos de latencia
+- Asi mismo, aquí se implementaría la solución para poder cambiar de pueblo en base a nuestra pocisión, dado que los gnomos están relacionados a un pueblo
+
+*/
 
 class MainCoordinator: NSObject, TabCoordinator {
 	typealias TabController = MainTabViewController

@@ -30,6 +30,7 @@
 		297B83DE24F14ACC0022081C /* GnomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */; };
 		297B83E024F169090022081C /* UIImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DF24F169090022081C /* UIImageUrl.swift */; };
 		297B83E324F17B4E0022081C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83E224F17B4E0022081C /* StatisticsViewController.swift */; };
+		29D8DBC624F20CC800ECDCDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 29D8DBC524F20CC800ECDCDB /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeTableViewCell.swift; sourceTree = "<group>"; };
 		297B83DF24F169090022081C /* UIImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUrl.swift; sourceTree = "<group>"; };
 		297B83E224F17B4E0022081C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		29D8DBC524F20CC800ECDCDB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				2960989E24F11C7C0099420D /* GnomesCoreData.xcdatamodeld */,
 				2960988E24F1181F0099420D /* Assets.xcassets */,
 				2960989024F1181F0099420D /* LaunchScreen.storyboard */,
+				29D8DBC524F20CC800ECDCDB /* README.md */,
 				2960989324F1181F0099420D /* Info.plist */,
 			);
 			path = Gnomes;
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D8DBC624F20CC800ECDCDB /* README.md in Resources */,
 				2960989224F1181F0099420D /* LaunchScreen.storyboard in Resources */,
 				2960988F24F1181F0099420D /* Assets.xcassets in Resources */,
 				2960988D24F1181B0099420D /* Main.storyboard in Resources */,

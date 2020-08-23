@@ -7,7 +7,14 @@
 //
 
 import UIKit
-
+/**
+Encargado de presentar los detalles de un gnomo, como la imagen "Podía ser random", se decidió indicar el color de cabello, cambiando el color de la vista acorde, en vez de dejarlo como texto
+A esta pantalla se llega mediante
+- Seleccionar un gnomo en la lista y búsqueda
+- Seleccionar a un amigo
+- Seleccionar un gnomo de una profesión
+- Seleccionar de la pantalla de estadisticas
+*/
 class GnomeDetailViewController: UIViewController {
 
 	var coordinator: GnomeCoordinator?

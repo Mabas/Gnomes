@@ -7,7 +7,13 @@
 //
 
 import UIKit
-
+/**
+Controlador responsable de mostrar una lista de Gnomes
+se reutiliza al
+- Listar todos
+- Listar por profesión
+- Filtrar
+*/
 class GnomesViewController: UIViewController {
 	var coordinator: GnomeCoordinator?
 	let dataSource: TableDataSource<GnomeModel, GnomeTableViewCell>! = TableDataSource()

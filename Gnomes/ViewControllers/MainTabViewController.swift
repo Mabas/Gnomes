@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+Dado que uno de los requisitos era fast filtering, se implemento el SearchController en el Tab, para que estuviera disponible en las 2 pantallas principales, aunque el filtrado se realiza en GnomesViewController, por eso se definió este como searchResultsUpdater
+*/
 class MainTabViewController: UITabBarController {
 	weak var coordinator: MainCoordinator?
 	
@@ -51,6 +54,9 @@ extension MainTabViewController: UISearchBarDelegate {
 	}
 }
 
+/**
+Realizar el cambio a la primera vista, para mostrar los resultados
+*/
 extension MainTabViewController: UISearchControllerDelegate {
 	func willPresentSearchController(_ searchController: UISearchController) {
 		selectedIndex = 0

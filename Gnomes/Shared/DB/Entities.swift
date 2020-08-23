@@ -8,7 +8,10 @@
 
 import Foundation
 import CoreData
+/**
+API de las entidades de la base de datos, se encarga del almacenamiento y obtención de datos de CoreData
 
+*/
 class DBEntitiesApi {
 	enum Entities: String {
 		case Town

@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+/**
+	No se utiliza, pero se desarrollo pensando en que, una mejoría podría ser que se fueran almacenando los pueblos visitados, y cambiarlos en base a la localización virtual =)
+*/
 class TownViewController: UIViewController {
 	let dataSource: TableDataSource<String, TownCell>! = TableDataSource()
 	@IBOutlet weak var tableView: UITableView!
@@ -45,6 +47,4 @@ class TownCell: UITableViewCell, Dequeable {
 			textLabel?.text = townName
 		}
 	}
-	
-	
 }
