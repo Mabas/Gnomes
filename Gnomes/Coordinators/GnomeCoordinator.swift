@@ -33,6 +33,7 @@ class GnomeCoordinator: Coordinator {
 		let vc = GnomesViewController.instantiate()
 		vc.coordinator = self
 		vc.gnomes = DBEntitiesApi().getGnomes(profession: profession)
+		vc.title = "\(profession.rawValue) Gnomes"
 		navigationController.pushViewController(vc, animated: true)
 	}
 	

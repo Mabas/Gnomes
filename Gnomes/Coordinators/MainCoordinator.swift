@@ -9,7 +9,7 @@ class MainCoordinator: NSObject, TabCoordinator {
 	var childCoordinators = [Coordinator]()
 	var navigationController: UINavigationController
 	
-	var tabController: TabController?
+	var tabController: MainTabViewController?
 	
 	override init() {
 		tabController = MainTabViewController.instantiate()
@@ -46,8 +46,11 @@ class MainCoordinator: NSObject, TabCoordinator {
 	
 	func setTabs() {
 		var tabs = [UIViewController]()
-		tabs.append(gnomesTab())
+		let gnomesCoordinator = GnomeCoordinator(navigationController: navigationController)
+		tabs.append(gnomesTab(gnomesCoordinator: gnomesCoordinator))
+		tabs.append(statisticsTab(gnomesCoordinator: gnomesCoordinator))
 		tabController?.viewControllers = tabs
+		tabController?.configureSearch()
 	}
 	func childDidFinish(_ child: Coordinator?) {
 		for (index, coordinator) in childCoordinators.enumerated() {
@@ -82,12 +85,18 @@ extension MainCoordinator: UINavigationControllerDelegate {
 
 extension MainCoordinator {
 	
-	func gnomesTab() -> UIViewController {
+	func gnomesTab(gnomesCoordinator: GnomeCoordinator) -> UIViewController {
 		let gnomesVC = GnomesViewController.instantiate()
-		let gnomesCoordinator = GnomeCoordinator(navigationController: navigationController)
 		childCoordinators.append(gnomesCoordinator)
 		gnomesVC.coordinator = gnomesCoordinator
 		return gnomesVC
+	}
+	
+	func statisticsTab(gnomesCoordinator: GnomeCoordinator) -> UIViewController {
+		let statisticsVC = StatisticsViewController.instantiate()
+		childCoordinators.append(gnomesCoordinator)
+		statisticsVC.coordinator = gnomesCoordinator
+		return statisticsVC
 	}
 	
 }

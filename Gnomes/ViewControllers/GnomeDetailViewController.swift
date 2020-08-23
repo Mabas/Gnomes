@@ -20,7 +20,9 @@ class GnomeDetailViewController: UIViewController {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	
-	@IBOutlet weak var fisiologicDetails: UILabel!
+	@IBOutlet weak var ageLbl: UILabel!
+	@IBOutlet weak var weightLbl: UILabel!
+	@IBOutlet weak var heightLbl: UILabel!
 	
 	@IBOutlet weak var professionsTableView: UITableView!
 	@IBOutlet weak var friendsTableView: UITableView!
@@ -43,8 +45,9 @@ class GnomeDetailViewController: UIViewController {
 		}
 		
 		view.backgroundColor = gnome.hairColor.uiColor
-		
-		fisiologicDetails.text = "w: \(String(format: "%.2f", gnome.weight)), h: \(String(format: "%.2f", gnome.height))"
+		ageLbl.text = "Age: \(gnome.age)"
+		weightLbl.text = String(format: "Weight: %.2f", gnome.weight)
+		heightLbl.text = String(format: "Height: %.2f", gnome.height)
 		
 		professionsTableView.dataSource = professionsDataSource
 		professionsDataSource.items = gnome.professions.map{ $0.rawValue }

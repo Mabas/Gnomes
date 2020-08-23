@@ -15,6 +15,7 @@ class DBEntitiesApi {
 		case Gnome
 		case Profession
 		case HairColor
+		case Mention
 	}
 	let context = CDStack.shared.managedObjectContext
 
@@ -33,6 +34,12 @@ class DBEntitiesApi {
 				if let gnomeEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Gnome.rawValue, into: context) as? Gnome {
 					gnomeEntity.set(from: gnome)
 					gnomeEntity.setProfessions(gnome.professions)
+					addMention(name: gnome.name)
+
+					gnome.friends.forEach {
+						addMention(name: $0)
+					}
+					
 					do {
 						let hColor = try DBEntitiesApi().getOrCreate(hairColor: gnome.hairColor)
 						hColor.addToGnomes(gnomeEntity)
@@ -43,7 +50,7 @@ class DBEntitiesApi {
 					return gnomeEntity
 				}
 				else {
-					print("No se genero entidad")
+					print("No se genero entidad Gnome")
 				}
 
 				return nil
@@ -103,6 +110,26 @@ class DBEntitiesApi {
 		}
 	}
 	
+	func addMention(name: String) {
+		let fetchRequest: NSFetchRequest<Mention> = Mention.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+		fetchRequest.fetchLimit = 1
+		do {
+			let resultados = try context.fetch(fetchRequest)
+			if let mention = resultados.first {
+				mention.count += 1
+			}
+			else {
+				let mentionEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.Mention.rawValue, into: context) as! Mention
+				mentionEntity.name = name
+				mentionEntity.count = 0
+			}
+		}
+		catch {
+			print("No se pudo agregar mención")
+		}
+	}
+	
 	func getGnomes(town: String) -> [GnomeModel] {
 		if let townEntity = getTown(town: town),
 			let gnomes = townEntity.gnomes?.array as? [Gnome] {
@@ -146,12 +173,42 @@ class DBEntitiesApi {
 		}
 		return nil
 	}
+	
+	func getProfessions() -> [String: Int] {
+		let fetchRequest: NSFetchRequest<Profession> = Profession.fetchRequest()
+		let resultados: [Profession] = (try? context.fetch(fetchRequest)) ?? []
+		var dict = [String: Int]()
+		resultados.forEach { dict[$0.name!] = $0.objectIDs(forRelationshipNamed: "gnomes").count }
+		return dict
+	}
+	
+	func getHairColors() -> [String: Int] {
+		let fetchRequest: NSFetchRequest<HairColor> = HairColor.fetchRequest()
+		let resultados: [HairColor] = (try? context.fetch(fetchRequest)) ?? []
+		var dict = [String: Int]()
+		resultados.forEach { dict[$0.color!] = $0.objectIDs(forRelationshipNamed: "gnomes").count }
+		return dict
+	}
+	
+	func getMentions() -> [String: Int] {
+		let fetchRequest: NSFetchRequest<Mention> = Mention.fetchRequest()
+		let resultados: [Mention] = (try? context.fetch(fetchRequest)) ?? []
+		var dict = [String: Int]()
+		resultados.forEach { dict[$0.name!] = Int($0.count) }
+		return dict
+	}
+	
+	func getGnomes() -> [GnomeModel] {
+		let fetchRequest: NSFetchRequest<Gnome> = Gnome.fetchRequest()
+		let resultados: [Gnome] = (try? context.fetch(fetchRequest)) ?? []
+		return resultados.map { GnomeModel(dbModel: $0) }
+	}
 }
 
 extension Gnome {
 	func set(from gnome: GnomeModel) {
 		age = gnome.age
-		friends = gnome.friends.joined(separator: ",")
+		friends = gnome.friends.count > 0 ? gnome.friends.joined(separator: ",") : nil
 		height = gnome.height
 		id = gnome.id
 		name = gnome.name

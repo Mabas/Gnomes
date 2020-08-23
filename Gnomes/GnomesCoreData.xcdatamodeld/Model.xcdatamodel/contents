@@ -16,6 +16,10 @@
         <attribute name="color" optional="YES" attributeType="String"/>
         <relationship name="gnomes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gnome" inverseName="hairColor" inverseEntity="Gnome"/>
     </entity>
+    <entity name="Mention" representedClassName="Mention" syncable="YES" codeGenerationType="class">
+        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Profession" representedClassName="Profession" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="gnomes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gnome" inverseName="professions" inverseEntity="Gnome"/>
@@ -25,9 +29,10 @@
         <relationship name="gnomes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Gnome" inverseName="town" inverseEntity="Gnome"/>
     </entity>
     <elements>
-        <element name="Profession" positionX="53.28125" positionY="-23.4453125" width="128" height="73"/>
-        <element name="HairColor" positionX="51.8046875" positionY="-171.9140625" width="128" height="73"/>
         <element name="Gnome" positionX="265.46484375" positionY="-128.71875" width="128" height="193"/>
+        <element name="HairColor" positionX="51.8046875" positionY="-171.9140625" width="128" height="73"/>
+        <element name="Profession" positionX="53.28125" positionY="-23.4453125" width="128" height="73"/>
         <element name="Town" positionX="84.89453125" positionY="77.55078125" width="128" height="73"/>
+        <element name="Mention" positionX="162" positionY="-27" width="128" height="73"/>
     </elements>
 </model>

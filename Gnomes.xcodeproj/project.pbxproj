@@ -29,6 +29,7 @@
 		297B83DC24F1492E0022081C /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DB24F1492E0022081C /* MainTabViewController.swift */; };
 		297B83DE24F14ACC0022081C /* GnomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */; };
 		297B83E024F169090022081C /* UIImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83DF24F169090022081C /* UIImageUrl.swift */; };
+		297B83E324F17B4E0022081C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B83E224F17B4E0022081C /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		297B83DB24F1492E0022081C /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeTableViewCell.swift; sourceTree = "<group>"; };
 		297B83DF24F169090022081C /* UIImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUrl.swift; sourceTree = "<group>"; };
+		297B83E224F17B4E0022081C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				296098A424F11E420099420D /* Shared */,
 				2960988524F1181B0099420D /* AppDelegate.swift */,
 				2960988724F1181B0099420D /* SceneDelegate.swift */,
+				297B83E124F17AEE0022081C /* Coordinators */,
 				297B83D524F147C30022081C /* ViewControllers */,
 				2960988B24F1181B0099420D /* Main.storyboard */,
 				2960989E24F11C7C0099420D /* GnomesCoreData.xcdatamodeld */,
@@ -145,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				296098B024F129030099420D /* Entities.swift */,
-				297B83D124F146970022081C /* MainCoordinator.swift */,
-				297B83D724F148100022081C /* GnomeCoordinator.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -159,8 +160,18 @@
 				297B83D324F147B90022081C /* GnomesViewController.swift */,
 				297B83DD24F14ACC0022081C /* GnomeTableViewCell.swift */,
 				297B83D924F148710022081C /* GnomeDetailViewController.swift */,
+				297B83E224F17B4E0022081C /* StatisticsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		297B83E124F17AEE0022081C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				297B83D124F146970022081C /* MainCoordinator.swift */,
+				297B83D724F148100022081C /* GnomeCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 				297B83D824F148100022081C /* GnomeCoordinator.swift in Sources */,
 				296098A024F11C7C0099420D /* GnomesCoreData.xcdatamodeld in Sources */,
 				297B83D224F146970022081C /* MainCoordinator.swift in Sources */,
+				297B83E324F17B4E0022081C /* StatisticsViewController.swift in Sources */,
 				297B83D424F147B90022081C /* GnomesViewController.swift in Sources */,
 				296098AC24F126740099420D /* DataSource.swift in Sources */,
 				296098A224F11E2D0099420D /* Networking.swift in Sources */,
